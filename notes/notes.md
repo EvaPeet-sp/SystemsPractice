@@ -1,11 +1,9 @@
 ## Microbial Physiology Data
 
 ### Cell
-Synechocystis PCC6803
-
-target wavelengths were measure light scattering and not absortion: e.g 730nm
-
-We can also target regions were cells absorb light to get and idea of pigment composition: e.g. 634 and 685 nm
+- Synechocystis PCC6803
+- target wavelengths were measure light scattering and not absortion: e.g 730nm
+- We can also target regions were cells absorb light to get and idea of pigment composition: e.g. 634 and 685 nm
 
 ### Synechocystis ploidy
 - Number of complete (sets of) chromosomes in a cell
@@ -35,7 +33,7 @@ spectrophotometer
 - qPCR: Ct values from quantitative PCR
 
 ### Casy Counter
-Protocol
+#### Protocol
 1. Dilute sample of interest (measurement range)
 2. Pipette 10 μL dilution into CASY-vial with 10 mL of CASY-ton buffer
 3. Insert CASY-vial into CASY-counter
@@ -47,4 +45,27 @@ Protocol
         - Peak diameter
         - Average diameter
 
+So, this means that:
+- vial contains
+    - 10 μL of diluted sample
+    - into 10000 μL of CASY-ton buffer
+- measurement volume is 200 μL
 
+example calculation:
+- measurement_volume = 200μL
+- counts = 2212
+- sample_volume = 10 μL  e.
+- casyton_volume = 10000 μL
+- sample_dilution = 2    e.g. sample is diluted to 1:2 with casyton volumee
+
+```
+ cells / μL = (counts / measurement_volume) * ((sample_volume + casyton_volume) / sample_volume) * sample_dilution
+
+cells / μL = (2212 / 200) * ((10 + 10000) / 10) * 2
+cells / μL = 11.06 * 1001 * 2
+cells / μL = 22142.12
+
+cells / mL = cells / μL * 1000
+cells / mL = 22142.12 * 1000
+cells / mL = 22,142,120
+```
